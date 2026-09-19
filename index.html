@@ -114,21 +114,6 @@
       background: #1689d4;
     }
 
-    .spazio-pubblicita {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 90px;
-      max-width: 760px;
-      margin: 20px 0;
-      border: 2px dashed #9bd4ff;
-      border-radius: 8px;
-      background: rgba(0, 20, 60, 0.5);
-      color: #d9ecff;
-      letter-spacing: 1px;
-      text-align: center;
-    }
-
     footer {
       max-width: 760px;
       margin-top: 32px;
@@ -148,6 +133,49 @@
         width: min(100%, 260px);
         margin: 0 auto 16px !important;
       }
+    }
+    /* Stile comune del sito */
+    * { box-sizing: border-box; }
+    body { max-width: 1100px; margin: 0 auto; padding: 32px 24px; line-height: 1.7; font-size: 1.12rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-top: 0; }
+    h2 { margin-top: 42px; border-left: 4px solid #45b7ff; padding-left: 12px; }
+    nav { box-shadow: 0 10px 25px rgba(0, 0, 0, .25); }
+    nav a { transition: background .2s, transform .2s; }
+    nav a:hover { transform: translateY(-2px); }
+    .contenitore-immagine { max-width: 900px; }
+    .contenitore-immagine p { text-shadow: 1px 1px 2px #000; }
+    table { overflow: hidden; border-radius: 10px; box-shadow: 0 8px 22px rgba(0, 0, 0, .25); }
+    tbody tr:nth-child(even) { background: rgba(100, 190, 255, .08); }
+    th { background: rgba(22, 137, 212, .35); }
+    footer { max-width: 900px; font-size: .9rem; }
+    @media (max-width: 600px) {
+      body { padding: 24px 16px; }
+      nav { gap: 6px; }
+      nav a { flex: 1 1 135px; text-align: center; }
+      table { display: block; overflow-x: auto; }
+    }
+
+    /* Animazioni leggere e coerenti con lo sfondo spaziale */
+    body { animation: comparsa 0.8s ease both; }
+    h1 { animation: scorrimento 0.8s ease both; }
+    nav { animation: comparsa 1s ease 0.15s both; }
+    nav a { transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+    nav a:hover { box-shadow: 0 0 14px rgba(69, 183, 255, 0.55); }
+    h2 { transition: color 0.25s ease, padding-left 0.25s ease; }
+    h2:hover { color: #ffffff; padding-left: 18px; }
+    .contenitore-immagine p { animation: salita 0.7s ease both; }
+    .contenitore-immagine img { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+    .contenitore-immagine img:hover { transform: scale(1.04) rotate(1deg); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); }
+    tbody tr { transition: background 0.25s ease, transform 0.25s ease; }
+    tbody tr:hover { background: rgba(69, 183, 255, 0.16); transform: translateX(4px); }
+    tbody tr, li, h2 { cursor: pointer; }
+    tbody tr:focus, li:focus, h2:focus { outline: 2px solid #45b7ff; outline-offset: 3px; }
+    .selezionata { color: #ffffff; background: rgba(69, 183, 255, 0.22); }
+    @keyframes comparsa { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scorrimento { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes salita { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
@@ -261,6 +289,23 @@
     <p>Sito informativo dedicato all'Agenzia Spaziale Europea. Curato da Mattia Pappalardo</p>
   </footer>
 
-
+  <script>
+    document.querySelectorAll('li, tbody tr, h2, h3').forEach((elemento) => {
+      elemento.tabIndex = 0;
+      elemento.setAttribute('role', 'link');
+      const apriDettaglio = () => {
+        const voce = elemento.textContent.trim();
+        const pagina = document.title;
+        window.location.href = `dettaglio.html?voce=${encodeURIComponent(voce)}&pagina=${encodeURIComponent(pagina)}`;
+      };
+      elemento.addEventListener('click', apriDettaglio);
+      elemento.addEventListener('keydown', (evento) => {
+        if (evento.key === 'Enter' || evento.key === ' ') {
+          evento.preventDefault();
+          apriDettaglio();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
