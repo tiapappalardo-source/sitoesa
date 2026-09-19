@@ -13,7 +13,7 @@
       background-color: #06152f;
       background-image:
         linear-gradient(rgba(0, 0, 40, 0.58), rgba(0, 0, 40, 0.58)),
-        url("https://upload.wikimedia.org/wikipedia/commons/4/4c/Aerial_view_of_ESA_s_technical_centre_ESTEC.jpg?utm_source=it.wikipedia.org&utm_campaign=index&utm_content=original");
+        url("https://www.asi.it/wp-content/uploads/2019/03/1475144620_Rosetta_esa.jpg");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -109,6 +109,44 @@
         min-width: 600px;
       }
     }
+    * { box-sizing: border-box; }
+    body { max-width: 1100px; margin: 0 auto; padding: 32px 24px; font-size: 1.12rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-top: 0; }
+    h2 { margin-top: 38px; border-left: 4px solid #45b7ff; padding-left: 12px; }
+    nav { box-shadow: 0 10px 25px rgba(0, 0, 0, .25); }
+    nav a { transition: background .2s, transform .2s; }
+    nav a:hover { transform: translateY(-2px); }
+    section { max-width: 900px; }
+    table { border-radius: 10px; overflow: hidden; box-shadow: 0 8px 22px rgba(0, 0, 0, .25); }
+    tbody tr:nth-child(even) { background: rgba(100, 190, 255, .08); }
+    tbody tr:hover { background: rgba(69, 183, 255, .16); }
+    th { background: rgba(22, 137, 212, .4); }
+    footer { max-width: 900px; font-size: .9rem; }
+    @media (max-width: 600px) {
+      body { padding: 24px 16px; }
+      nav a { flex: 1 1 135px; text-align: center; }
+      section { overflow-x: auto; }
+      table { min-width: 650px; }
+    }
+
+    /* Animazioni leggere e coerenti con lo sfondo spaziale */
+    body { animation: comparsa 0.8s ease both; }
+    h1 { animation: scorrimento 0.8s ease both; }
+    nav { animation: comparsa 1s ease 0.15s both; }
+    nav a { transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+    nav a:hover { box-shadow: 0 0 14px rgba(69, 183, 255, 0.55); }
+    h2 { transition: color 0.25s ease, padding-left 0.25s ease; }
+    h2:hover { color: #ffffff; padding-left: 18px; }
+    tbody tr { transition: background 0.25s ease, transform 0.25s ease; }
+    tbody tr:hover { transform: translateX(4px); }
+    tbody tr, h2 { cursor: pointer; }
+    tbody tr:focus, h2:focus { outline: 2px solid #45b7ff; outline-offset: 3px; }
+    .selezionata { color: #ffffff; background: rgba(69, 183, 255, 0.22); }
+    @keyframes comparsa { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scorrimento { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
   </style>
 </head>
 <body>
@@ -121,72 +159,85 @@
     <a href="storia.html">Storia</a>
   </nav>
 
-  <main>
-    <h2>Una rete di centri in Europa</h2>
-    <p>
-      L'ESA svolge le sue attività attraverso diversi centri specializzati,
-      distribuiti in vari Paesi europei. Ogni centro si occupa di un settore
-      importante delle attività spaziali.
-    </p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Centro</th>
-          <th>Località</th>
-          <th>Attività principale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>ESTEC</strong></td>
-          <td>Noordwijk, Paesi Bassi</td>
-          <td>Ricerca, progettazione e sviluppo di tecnologie spaziali.</td>
-        </tr>
-        <tr>
-          <td><strong>ESOC</strong></td>
-          <td>Darmstadt, Germania</td>
-          <td>Controllo dei satelliti e delle missioni nello spazio.</td>
-        </tr>
-        <tr>
-          <td><strong>ESRIN</strong></td>
-          <td>Frascati, Italia</td>
-          <td>Raccolta e gestione dei dati sull'osservazione della Terra.</td>
-        </tr>
-        <tr>
-          <td><strong>EAC</strong></td>
-          <td>Colonia, Germania</td>
-          <td>Preparazione e addestramento degli astronauti europei.</td>
-        </tr>
-        <tr>
-          <td><strong>ESAC</strong></td>
-          <td>Villanueva de la Cañada, Spagna</td>
-          <td>Ricerca astronomica e analisi dei dati scientifici.</td>
-        </tr>
-        <tr>
-          <td><strong>Centre Spatial Guyanais</strong></td>
-          <td>Kourou, Guyana francese</td>
-          <td>Spazioporto europeo per il lancio dei razzi.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <section class="curiosita">
-      <h2>Il ruolo dei centri ESA</h2>
-      <p>
-        Grazie alla collaborazione tra i suoi centri, l'ESA può progettare satelliti,
-        controllare missioni, addestrare astronauti e studiare la Terra e l'Universo.
-      </p>
-      <h2>Lo sapevi che?</h2>
-      <p>
-        Il Centre Spatial Guyanais si trova vicino all'equatore. Questa posizione aiuta
-        i razzi a raggiungere lo spazio sfruttando la rotazione della Terra.
-      </p>
-    </section>
-  </main>
-
+ <section>
+  <h2>I Principali Centri dell'ESA in Europa</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Centro</th>
+        <th>Sede</th>
+        <th>Funzione Principale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>HQ</strong></td>
+        <td>Parigi (Francia)</td>
+        <td>Sede centrale; decisioni politiche e strategiche.</td>
+      </tr>
+      <tr>
+        <td><strong>ESTEC</strong></td>
+        <td>Noordwijk (Paesi Bassi)</td>
+        <td>Centro tecnologico principale; progettazione e test di satelliti e veicoli spaziali.</td>
+      </tr>
+      <tr>
+        <td><strong>ESOC</strong></td>
+        <td>Darmstadt (Germania)</td>
+        <td>Centro di controllo missione per la gestione in orbita dei satelliti e delle sonde.</td>
+      </tr>
+      <tr>
+        <td><strong>EAC</strong></td>
+        <td>Colonia (Germania)</td>
+        <td>Sede del corpo astronautico; selezione e addestramento degli astronauti europei.</td>
+      </tr>
+      <tr>
+        <td><strong>ESRIN</strong></td>
+        <td>Frascati / Roma (Italia)</td>
+        <td>Gestione dei dati di Osservazione della Terra (Copernicus) e programma del lanciatore Vega.</td>
+      </tr>
+      <tr>
+        <td><strong>ESAC</strong></td>
+        <td>Villanueva de la Cañada / Madrid (Spagna)</td>
+        <td>Operazioni scientifiche ed elaborazione dati per l'astronomia e l'esplorazione planetaria.</td>
+      </tr>
+      <tr>
+        <td><strong>ECSAT</strong></td>
+        <td>Harwell (Regno Unito)</td>
+        <td>Sviluppo di telecomunicazioni satellitari e applicazioni commerciali.</td>
+      </tr>
+      <tr>
+        <td><strong>ESEC</strong></td>
+        <td>Redu (Belgio)</td>
+        <td>Sicurezza spaziale, tracciamento satellitare e programmi didattici.</td>
+      </tr>
+      <tr>
+        <td><strong>CSG</strong></td>
+        <td>Kourou (Guyana Francese)</td>
+        <td>Porto spaziale europeo da cui vengono lanciati i vettori Ariane e Vega.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
   <footer>
     <p>Sito informativo dedicato all'Agenzia Spaziale Europea. Curato da Mattia Pappalardo</p>
   </footer>
+  <script>
+    document.querySelectorAll('li, tbody tr, h2, h3').forEach((elemento) => {
+      elemento.tabIndex = 0;
+      elemento.setAttribute('role', 'link');
+      const apriDettaglio = () => {
+        const voce = elemento.textContent.trim();
+        const pagina = document.title;
+        window.location.href = `dettaglio.html?voce=${encodeURIComponent(voce)}&pagina=${encodeURIComponent(pagina)}`;
+      };
+      elemento.addEventListener('click', apriDettaglio);
+      elemento.addEventListener('keydown', (evento) => {
+        if (evento.key === 'Enter' || evento.key === ' ') {
+          evento.preventDefault();
+          apriDettaglio();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
