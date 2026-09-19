@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centri ESA</title>
+  <style>
+    body {
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: #ffffff;
+      margin: 24px;
+      line-height: 1.6;
+      background-color: #06152f;
+      background-image:
+        linear-gradient(rgba(0, 0, 40, 0.58), rgba(0, 0, 40, 0.58)),
+        url("https://www.asi.it/wp-content/uploads/2019/03/1475144620_Rosetta_esa.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    h1, h2 {
+      color: #bfe3ff;
+      text-shadow: 2px 2px 4px #000000;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 4px;
+    }
+
+    nav, main, footer {
+      max-width: 760px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 24px;
+      padding: 12px;
+      background: rgba(0, 20, 60, 0.82);
+      border: 1px solid rgba(155, 212, 255, 0.55);
+      border-radius: 10px;
+    }
+
+    nav a {
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      background: #1689d4;
+    }
+
+    main {
+      max-width: 760px;
+    }
+
+    table {
+      width: 100%;
+      margin: 24px 0;
+      border-collapse: collapse;
+      background: rgba(0, 20, 60, 0.75);
+    }
+
+    .curiosita {
+      margin-top: 28px;
+      padding: 16px 20px;
+      
+    }
+
+    .curiosita h2 {
+      margin-top: 0;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #9bd4ff;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: #d9ecff;
+    }
+
+    footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(155, 212, 255, 0.6);
+      color: #d9ecff;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        margin: 16px;
+      }
+
+      main {
+        overflow-x: auto;
+      }
+
+      table {
+        min-width: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>I centri dell'ESA</h1>
+
+  <nav aria-label="Navigazione principale">
+    <a href="index.html">Home</a>
+    <a href="missioni.html">Missioni</a>
+    <a href="centri.html" aria-current="page">Centri ESA</a>
+    <a href="storia.html">Storia</a>
+  </nav>
+
+  <main>
+    <h2>Una rete di centri in Europa</h2>
+    <p>
+      L'ESA svolge le sue attività attraverso diversi centri specializzati,
+      distribuiti in vari Paesi europei. Ogni centro si occupa di un settore
+      importante delle attività spaziali.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Centro</th>
+          <th>Località</th>
+          <th>Attività principale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ESTEC</strong></td>
+          <td>Noordwijk, Paesi Bassi</td>
+          <td>Ricerca, progettazione e sviluppo di tecnologie spaziali.</td>
+        </tr>
+        <tr>
+          <td><strong>ESOC</strong></td>
+          <td>Darmstadt, Germania</td>
+          <td>Controllo dei satelliti e delle missioni nello spazio.</td>
+        </tr>
+        <tr>
+          <td><strong>ESRIN</strong></td>
+          <td>Frascati, Italia</td>
+          <td>Raccolta e gestione dei dati sull'osservazione della Terra.</td>
+        </tr>
+        <tr>
+          <td><strong>EAC</strong></td>
+          <td>Colonia, Germania</td>
+          <td>Preparazione e addestramento degli astronauti europei.</td>
+        </tr>
+        <tr>
+          <td><strong>ESAC</strong></td>
+          <td>Villanueva de la Cañada, Spagna</td>
+          <td>Ricerca astronomica e analisi dei dati scientifici.</td>
+        </tr>
+        <tr>
+          <td><strong>Centre Spatial Guyanais</strong></td>
+          <td>Kourou, Guyana francese</td>
+          <td>Spazioporto europeo per il lancio dei razzi.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="curiosita">
+      <h2>Il ruolo dei centri ESA</h2>
+      <p>
+        Grazie alla collaborazione tra i suoi centri, l'ESA può progettare satelliti,
+        controllare missioni, addestrare astronauti e studiare la Terra e l'Universo.
+      </p>
+      <h2>Lo sapevi che?</h2>
+      <p>
+        Il Centre Spatial Guyanais si trova vicino all'equatore. Questa posizione aiuta
+        i razzi a raggiungere lo spazio sfruttando la rotazione della Terra.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Sito informativo dedicato all'Agenzia Spaziale Europea. Curato da Mattia Pappalardo</p>
+  </footer>
+</body>
+</html>
