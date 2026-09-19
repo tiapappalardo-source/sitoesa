@@ -89,6 +89,54 @@
       color: #d9ecff;
     }
 
+    
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 24px;
+      padding: 12px;
+      background: rgba(0, 20, 60, 0.78);
+      border: 1px solid rgba(155, 212, 255, 0.55);
+      border-radius: 10px;
+    }
+
+    nav a {
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      background: #1689d4;
+    }
+
+    .spazio-pubblicita {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 90px;
+      max-width: 760px;
+      margin: 20px 0;
+      border: 2px dashed #9bd4ff;
+      border-radius: 8px;
+      background: rgba(0, 20, 60, 0.5);
+      color: #d9ecff;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    footer {
+      max-width: 760px;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(155, 212, 255, 0.6);
+      color: #d9ecff;
+    }
+
     @media (max-width: 600px) {
       body {
         margin: 16px;
@@ -106,6 +154,15 @@
 <body>
   <h1>Agenzia Spaziale Europea</h1>
   <p class="sottotitolo">Più di una semplice agenzia spaziale.</p>
+
+  <nav aria-label="Navigazione principale">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="missioni.html">Missioni</a>
+    <a href="centri.html">Centri ESA</a>
+    <a href="storia.html">Storia</a>
+  </nav>
+
+ 
 
   <div class="contenitore-immagine">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRsq7bVJ1p47HDF2GXWSqmtLlF2qHpKrNpUxbBbWssGQ&s=10" alt="Immagine dell'ESA">
@@ -199,5 +256,11 @@
       spazio per migliorare la vita sulla Terra.
     </p>
   </div>
+
+  <footer>
+    <p>Sito informativo dedicato all'Agenzia Spaziale Europea. Curato da Mattia Pappalardo</p>
+  </footer>
+
+
 </body>
 </html>
