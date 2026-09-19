@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Approfondimento ESA</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      font: 1.12rem/1.7 "Trebuchet MS", "Segoe UI", sans-serif;
+      color: #fff;
+      background: #06152f url("https://www.eui.eu/Content-Types-Assets/Uploads/General/ESTEC-PHOTO-HAEU.x3e30f682.jpg") center/cover fixed no-repeat;
+      animation: comparsa .8s ease both;
+    }
+    main {
+      max-width: 900px;
+      padding: clamp(22px, 5vw, 42px);
+      background: rgba(0, 20, 60, .86);
+      border: 1px solid rgba(155, 212, 255, .65);
+      border-radius: 16px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, .38);
+    }
+    h1 {
+      margin-top: 0;
+      color: #bfe3ff;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .origine {
+      margin-top: 0;
+      color: #9bd4ff;
+      font-size: .95rem;
+      font-weight: bold;
+      letter-spacing: .3px;
+    }
+    #descrizione { max-width: 78ch; }
+    .azioni { margin-top: 32px; }
+    a {
+      display: inline-block;
+      color: #fff;
+      padding: 9px 14px;
+      border: 1px solid rgba(155, 212, 255, .6);
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+    }
+    a:hover {
+      color: #fff;
+      background: #1689d4;
+      transform: translateX(-4px);
+      box-shadow: 0 0 14px rgba(69, 183, 255, .55);
+    }
+    @keyframes comparsa { from { opacity: 0; } to { opacity: 1; } }
+    @media (max-width: 600px) {
+      body { padding: 24px 16px; }
+      main { padding: 22px 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="origine" id="origine"></p>
+    <h1 id="titolo">Informazione ESA</h1>
+    <p id="descrizione"></p>
+    <p class="azioni"><a id="indietro" href="index.html">← Torna alla pagina precedente</a></p>
+  </main>
+
+  <script>
+    const parametri = new URLSearchParams(window.location.search);
+    const voce = (parametri.get('voce') || 'Informazione ESA').trim();
+    const pagina = parametri.get('pagina') || 'Sito ESA';
+    const titolo = voce.split(':')[0].trim();
+
+    const approfondimenti = [
+      ['Che cos\'è l\'ESA?', 'L’Agenzia Spaziale Europea è un’organizzazione internazionale fondata nel 1975 per coordinare le competenze, le risorse e i programmi spaziali dei Paesi europei. Attraverso la collaborazione, l’ESA realizza missioni scientifiche, satelliti e tecnologie che sarebbero difficili da sviluppare per un singolo Stato.'],
+      ['Attività e centri principali', 'Le attività dell’ESA comprendono l’esplorazione del Sistema Solare, l’osservazione della Terra, l’astronomia, le telecomunicazioni, la navigazione e la preparazione degli astronauti. I suoi centri specializzati seguono ogni fase: dalla progettazione degli strumenti al controllo in orbita e all’analisi dei dati.'],
+      ['Le missioni scientifiche', 'Le missioni scientifiche permettono di studiare pianeti, comete, stelle e galassie, raccogliendo dati impossibili da ottenere dalla superficie terrestre. In Europa, ingegneri e ricercatori progettano strumenti molto sensibili e collaborano con università e agenzie spaziali di tutto il mondo.'],
+      ['La storia dell\'ESA', 'L’ESA nacque dall’unione delle esperienze dell’ESRO e dell’ELDO. Da allora ha costruito una competenza autonoma nel settore spaziale, partecipando a missioni internazionali e sviluppando lanciatori, satelliti e strumenti scientifici europei.'],
+      ['Esplorazione del Sistema Solare e Spazio Profondo', 'Questa area riunisce le missioni che esplorano pianeti, lune, comete e asteroidi oltre l’orbita terrestre. Le sonde raccolgono immagini e misure scientifiche durante viaggi lunghi e complessi, ampliando la conoscenza dell’origine e dell’evoluzione del Sistema Solare.'],
+      ['Osservazione dell’Universo e Astrofisica', 'I programmi di astrofisica osservano stelle, galassie e fenomeni cosmici con strumenti sensibili a diverse forme di luce. I dati ottenuti aiutano a comprendere la nascita delle stelle, la struttura dell’Universo e i suoi componenti ancora misteriosi.'],
+      ['Osservazione della Terra e Navigazione', 'L’ESA sviluppa satelliti e servizi che osservano il nostro pianeta e migliorano la precisione della navigazione. Queste tecnologie sostengono il monitoraggio ambientale, la previsione dei cambiamenti climatici, i trasporti e la gestione delle emergenze.'],
+      ['I Principali Centri dell’ESA in Europa', 'I centri dell’ESA formano una rete europea di competenze complementari. Ogni sede svolge un compito specifico: ricerca tecnologica, controllo delle missioni, addestramento degli astronauti, gestione dei dati o lancio dei vettori.'],
+      ['Le Origini e i Precursori', 'Prima dell’ESA, i Paesi europei crearono organizzazioni comuni per superare la frammentazione della ricerca spaziale. Le esperienze dell’ESRO e dell’ELDO fornirono le competenze scientifiche, tecniche e organizzative necessarie alla futura agenzia.'],
+      ['La Fondazione dell’ESA', 'Nel 1975 i Paesi europei decisero di unire le attività di ESRO ed ELDO in una nuova organizzazione. La fondazione dell’ESA rese possibile una programmazione condivisa e diede all’Europa una presenza più autonoma nella ricerca e nell’uso dello spazio.'],
+      ['Missioni Scientifiche e Successi', 'Le missioni scientifiche europee hanno studiato comete, pianeti, stelle e galassie, spesso in collaborazione con altre agenzie. Ogni progetto ha prodotto nuove conoscenze e ha favorito lo sviluppo di strumenti riutilizzati nelle missioni successive.'],
+      ['Sviluppo dei Lanciatori Commerciali', 'Lo sviluppo dei lanciatori Ariane ha permesso all’Europa di mettere in orbita satelliti scientifici, istituzionali e commerciali. La progettazione dei vettori ha rafforzato competenze strategiche in propulsione, controllo e sicurezza dei lanci.'],
+      ['Indipendenza e Relazioni Internazionali', 'L’ESA realizza i propri programmi attraverso collaborazioni internazionali, mantenendo allo stesso tempo competenze e infrastrutture europee. Le partnership ampliano le possibilità scientifiche, distribuiscono i costi e rendono possibili missioni molto ambiziose.'],
+      ['Telescopio Spaziale Hubble', 'Hubble è un osservatorio spaziale realizzato con la NASA e l’ESA. Operando sopra l’atmosfera terrestre, ha ottenuto immagini molto nitide di nebulose, galassie e pianeti e ha contribuito a misurare con maggiore precisione l’età e l’espansione dell’Universo.'],
+      ['James Webb', 'Il telescopio spaziale James Webb, sviluppato con una forte partecipazione europea, osserva soprattutto nell’infrarosso. Questa capacità permette di studiare le prime galassie, la formazione delle stelle e atmosfere di pianeti lontani.'],
+      ['Philae', 'Philae fu il lander trasportato dalla sonda Rosetta sulla cometa 67P. Il suo atterraggio ha permesso di analizzare direttamente il materiale della superficie cometaria, nonostante le difficoltà incontrate durante la discesa.'],
+      ['SMART-1', 'SMART-1 fu una missione tecnologica diretta verso la Luna. Dimostrò l’utilizzo della propulsione elettrica solare e raccolse dati sulla composizione della superficie lunare, aprendo la strada a sistemi di propulsione più efficienti.'],
+      ['Cassini-Huygens', 'Cassini-Huygens fu una collaborazione tra NASA, ESA e ASI dedicata a Saturno e alle sue lune. Il modulo europeo Huygens atterrò su Titano nel 2005, fornendo le prime misure dirette dell’atmosfera e della superficie di quella luna.'],
+      ['Ariane 1', 'Ariane 1 fu il primo lanciatore della famiglia Ariane. Il suo successo dimostrò la capacità europea di sviluppare un vettore affidabile per mettere in orbita satelliti scientifici e commerciali.'],
+      ['Ariane 4', 'Ariane 4 è stato uno dei lanciatori commerciali più affidabili della storia. La sua configurazione modulare permetteva di adattare la spinta al peso del carico e contribuì alla crescita del settore spaziale europeo.'],
+      ['Ariane 5', 'Ariane 5 è stato progettato per trasportare carichi pesanti in orbita e per sostenere missioni scientifiche ambiziose. Ha lanciato satelliti commerciali, sonde interplanetarie e componenti destinati alla Stazione Spaziale Internazionale.'],
+      ['Giotto', 'Lanciata nel 1985, Giotto fu la prima sonda europea a spingersi nello spazio profondo. Nel 1986 attraversò la chioma della cometa di Halley e ottenne immagini ravvicinate del suo nucleo, fornendo informazioni fondamentali sulla composizione e sull’attività delle comete.'],
+      ['Rosetta', 'Rosetta raggiunse la cometa 67P/Churyumov-Gerasimenko nel 2014 dopo un lungo viaggio interplanetario. La sonda studiò la cometa mentre si avvicinava al Sole e rilasciò il lander Philae, contribuendo a capire meglio i materiali primitivi da cui si è formato il Sistema Solare.'],
+      ['Mars Express', 'Operativa dal 2003, Mars Express studia Marte attraverso immagini ad alta risoluzione, analisi dell’atmosfera e radar sotterranei. La missione ha fornito importanti indizi sulla presenza passata e attuale di acqua nel sottosuolo marziano.'],
+      ['JUICE', 'JUICE, acronimo di Jupiter Icy Moons Explorer, è diretta verso Giove per esaminare Ganimede, Callisto ed Europa. I suoi strumenti analizzeranno le superfici, le atmosfere e gli ambienti magnetici delle lune, dove potrebbero esistere oceani sotto strati di ghiaccio.'],
+      ['BepiColombo', 'BepiColombo è una missione ESA-JAXA lanciata nel 2018 verso Mercurio. Studierà il pianeta più vicino al Sole, il suo campo magnetico, la superficie e l’interno, affrontando temperature e radiazioni particolarmente intense.'],
+      ['Hipparcos', 'Hipparcos fu il primo grande satellite europeo dedicato all’astrometria di precisione. Misurando posizione e distanza di molte stelle, ha migliorato le mappe della Galassia e ha fornito una base più accurata per lo studio del movimento degli astri.'],
+      ['Gaia', 'Gaia ha realizzato una delle più complete mappe tridimensionali della Via Lattea. Grazie a miliardi di osservazioni, misura posizione, distanza e movimento delle stelle, aiutando gli astronomi a ricostruire la storia e l’evoluzione della nostra Galassia.'],
+      ['Euclid', 'Euclid osserva un’ampia porzione del cielo per studiare la materia oscura e l’energia oscura. Analizzando la forma e la distribuzione delle galassie, la missione cerca di chiarire come si è espanso l’Universo e come si sono formate le sue strutture.'],
+      ['Copernicus', 'Copernicus è il programma europeo di osservazione della Terra. I satelliti Sentinel raccolgono dati su clima, oceani, ghiacci, agricoltura, inquinamento e calamità naturali, offrendo informazioni utili alla ricerca e alla gestione delle emergenze.'],
+      ['Galileo', 'Galileo è il sistema europeo di navigazione satellitare. La sua rete di satelliti e stazioni terrestri fornisce servizi di posizionamento precisi per trasporti, telecomunicazioni, agricoltura, soccorso e applicazioni quotidiane.'],
+      ['ESTEC', 'L’ESTEC, a Noordwijk nei Paesi Bassi, è il principale centro tecnologico dell’ESA. Qui vengono progettati, costruiti e sottoposti a test rigorosi satelliti, sonde e strumenti, simulando le condizioni estreme del lancio e dello spazio.'],
+      ['ESOC', 'L’ESOC, a Darmstadt in Germania, è il centro europeo per le operazioni spaziali. Le sue squadre pianificano le attività delle missioni, controllano i veicoli in orbita e reagiscono agli imprevisti per mantenere operativi satelliti e sonde.'],
+      ['ESRIN', 'L’ESRIN, a Frascati in Italia, è specializzato nell’osservazione della Terra e nella gestione dei dati satellitari. Il centro elabora e distribuisce informazioni utilizzate per monitorare ambiente, territorio, agricoltura e cambiamenti climatici.'],
+      ['EAC', 'L’EAC di Colonia ospita il corpo astronautico europeo. Qui gli astronauti ricevono formazione tecnica, medica e operativa e si preparano a lavorare a bordo della Stazione Spaziale Internazionale e nelle future missioni di esplorazione.'],
+      ['ESAC', 'L’ESAC, vicino a Madrid in Spagna, conserva ed elabora i dati delle missioni scientifiche. Ricercatori e specialisti li trasformano in risultati astronomici e planetari utili alla comunità scientifica internazionale.'],
+      ['ECSAT', 'L’ECSAT di Harwell, nel Regno Unito, sostiene lo sviluppo di applicazioni spaziali, telecomunicazioni e tecnologie innovative. Il centro favorisce il trasferimento dei risultati della ricerca verso imprese e servizi concreti.'],
+      ['ESEC', 'L’ESEC di Redu, in Belgio, contribuisce alla sicurezza spaziale, al tracciamento dei satelliti e alla formazione. Le sue attività aiutano a proteggere le infrastrutture orbitali e a seguire con attenzione l’ambiente spaziale.'],
+      ['CSG', 'Il Centre Spatial Guyanais di Kourou, nella Guyana francese, è lo spazioporto europeo. La posizione vicina all’equatore favorisce i lanci orbitali e consente di sfruttare la rotazione terrestre per raggiungere lo spazio con maggiore efficienza.'],
+      ['ELDO', 'L’ELDO fu fondata nel 1962 per sviluppare un lanciatore europeo indipendente. Anche se il progetto non raggiunse tutti gli obiettivi iniziali, la sua esperienza contribuì alla nascita delle competenze che portarono alla famiglia dei lanciatori Ariane.'],
+      ['ESRO', 'L’ESRO nacque nel 1964 con il compito di sviluppare la ricerca spaziale europea. Realizzò satelliti scientifici e creò una rete di collaborazione tra Paesi, preparando il terreno istituzionale e tecnico per la fondazione dell’ESA.'],
+      ['Ariane', 'La famiglia Ariane ha dato all’Europa un accesso affidabile allo spazio e una forte presenza nel mercato dei lanci commerciali. Il suo sviluppo ha richiesto competenze avanzate in propulsione, strutture, guida e gestione delle missioni.']
+    ];
+
+    const voceMinuscola = voce.toLocaleLowerCase('it-IT');
+    const risultato = approfondimenti.find(([chiave]) => voceMinuscola.includes(chiave.toLocaleLowerCase('it-IT')));
+    const descrizione = risultato
+      ? risultato[1]
+      : `“${voce}” è un argomento dell’${pagina}. Questa voce riguarda le attività, le missioni o le strutture che permettono all’ESA di studiare lo spazio, osservare la Terra e sviluppare tecnologie utili alla ricerca e alla società.`;
+
+    document.title = `${titolo} - ESA`;
+    document.querySelector('#titolo').textContent = titolo;
+    document.querySelector('#origine').textContent = `Sezione: ${pagina}`;
+    document.querySelector('#descrizione').textContent = descrizione;
+    document.querySelector('#indietro').href = document.referrer || 'index.html';
+  </script>
+</body>
+</html>
