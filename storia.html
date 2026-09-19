@@ -20,7 +20,45 @@
           background: #102d57; 
           border-radius: 10px; }
            nav a { color: white; padding: 8px 12px; text-decoration: none; border-radius: 6px; } 
-           nav a:hover, nav a[aria-current="page"] { background: #1689d4; } .spazio-pubblicita { display: flex; align-items: center; justify-content: center; min-height: 90px; margin: 20px 0; border: 2px dashed #9bd4ff; color: #d9ecff; text-align: center; } footer { margin-top: 32px; border-top: 1px solid #9bd4ff; color: #d9ecff; }
+           nav a:hover, nav a[aria-current="page"] { background: #1689d4; } footer { margin-top: 32px; border-top: 1px solid #9bd4ff; color: #d9ecff; }
+    * { box-sizing: border-box; }
+    body { max-width: 1100px; margin: 0 auto; padding: 32px 24px; font-size: 1.12rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-top: 0; text-shadow: 2px 2px 4px #000; }
+    article { max-width: 900px; }
+    article > h1 { color: #bfe3ff; border-left: 4px solid #45b7ff; padding-left: 12px; font-size: clamp(1.6rem, 4vw, 2.4rem); }
+    h2 { margin-top: 38px; color: #bfe3ff; text-shadow: 2px 2px 3px #000; }
+    section { padding: 4px 0 8px; border-bottom: 1px solid rgba(155, 212, 255, .25); }
+    nav { box-shadow: 0 10px 25px rgba(0, 0, 0, .25); }
+    nav a { transition: background .2s, transform .2s; }
+    nav a:hover { transform: translateY(-2px); }
+    li { margin: 12px 0; }
+    li::marker { color: #45b7ff; }
+    footer { max-width: 900px; font-size: .9rem; }
+    @media (max-width: 600px) {
+      body { padding: 24px 16px; }
+      nav a { flex: 1 1 135px; text-align: center; }
+    }
+
+    /* Animazioni leggere e coerenti con lo sfondo spaziale */
+    body { animation: comparsa 0.8s ease both; }
+    h1 { animation: scorrimento 0.8s ease both; }
+    nav { animation: comparsa 1s ease 0.15s both; }
+    nav a { transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+    nav a:hover { box-shadow: 0 0 14px rgba(69, 183, 255, 0.55); }
+    h2 { transition: color 0.25s ease, padding-left 0.25s ease; }
+    h2:hover { color: #ffffff; padding-left: 8px; }
+    section { transition: background 0.3s ease, border-color 0.3s ease; }
+    section:hover { border-bottom-color: rgba(69, 183, 255, 0.7); }
+    li { transition: transform 0.25s ease, color 0.25s ease; }
+    li:hover { transform: translateX(6px); color: #e8f6ff; }
+    li, h2 { cursor: pointer; }
+    li:focus, h2:focus { outline: 2px solid #45b7ff; outline-offset: 3px; }
+    .selezionata { color: #ffffff; background: rgba(69, 183, 255, 0.22); }
+    @keyframes comparsa { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scorrimento { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
   </style>
 </head>
 <body>
@@ -31,14 +69,77 @@
     <a href="centri.html">Centri ESA</a>
     <a href="storia.html" aria-current="page">Storia</a>
     </nav>
-  <main>
-    <h2>Dalle origini a oggi</h2>
-    <p>Nel 1964 nacque l'ESRO, dedicata alla ricerca spaziale, mentre l'ELDO sviluppava un lanciatore europeo.</p>
-    <p>Nel 1975 le due organizzazioni unirono le loro attività e fondarono l'Agenzia Spaziale Europea.</p>
-    <p>Da allora l'ESA collabora con Paesi, università e agenzie spaziali di tutto il mondo per studiare lo spazio e migliorare la vita sulla Terra.</p>
-    </main>
+  <article>
+  <h1>Storia ed Evoluzione dell'Agenzia Spaziale Europea (ESA)</h1>
+
+  <section>
+    <h2>Le Origini e i Precursori (Anni '50 - '60)</h2>
+    <ul>
+      <li><strong>Il contesto:</strong> Nel secondo dopoguerra, l'Europa affrontò una forte fuga di scienziati verso USA e URSS. Negli anni '50 si rese necessario unire le forze dei singoli paesi per competere con le due superpotenze nel settore spaziale.</li>
+      <li><strong>La prima proposta (1958):</strong> Gli scienziati Edoardo Amaldi e Pierre Victor Auger avviarono le discussioni per la fondazione di un'agenzia spaziale europea.</li>
+      <li><strong>Nascita di ELDO ed ESRO (1962):</strong>
+        <ul>
+          <li><strong>ELDO</strong> (<em>European Launcher Development Organisation</em>): Fondata da 6 paesi europei e l'Australia per sviluppare un lanciatore indipendente.</li>
+          <li><strong>ESRO</strong> (<em>European Space Research Organization</em>): Nata ufficialmente nel 1964 tra 10 paesi per progetti satellitari. Tra il 1968 e il 1972 lanciò con successo 7 satelliti scientifici tramite vettori statunitensi.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>La Fondazione dell'ESA (1973 - 1980)</h2>
+    <ul>
+      <li><strong>L'Unificazione (1973):</strong> Durante la conferenza di Bruxelles, i membri di ELDO ed ESRO decisero di fondere le due organizzazioni in un unico ente.</li>
+      <li><strong>I primi traguardi:</strong> Nel 1975 venne lanciata la prima missione (sonda Cos-B per lo studio dei raggi gamma). Il 30 ottobre 1980, con la ratifica definitiva dell'accordo, sancì l'esistenza legale dell'ESA.</li>
+      <li><strong>Espansione:</strong> Ai paesi fondatori si sono aggiunti nel tempo numerosi altri stati europei (fino a superare i 20 membri), oltre al Canada come partner speciale.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Missioni Scientifiche e Successi</h2>
+    <ul>
+      <li><strong>Collaborazioni internazionali:</strong> Partecipazione al telescopio orbitale IUE (1978), alle sonde SOHO, Ulysses, Hubble e alla missione Cassini-Huygens (con il modulo <em>Huygens</em> atterrato su Titano).</li>
+      <li><strong>Esplorazione indipendente:</strong> La missione <em>Giotto</em> (1986, prima sonda nello spazio profondo per studiare la cometa di Halley), <em>Hipparcos</em> (1989), <em>SMART-1</em> e <em>Mars Express</em>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Sviluppo dei Lanciatori Commerciali</h2>
+    <ul>
+      <li><strong>Ariane 1 (1979):</strong> Sviluppato come successore dei progetti ELDO.</li>
+      <li><strong>Ariane 4 (1984-2003):</strong> Ha reso l'ESA il principale attore mondiale nel mercato dei lanci commerciali.</li>
+      <li><strong>Ariane 5:</strong> Nonostante alcuni problemi nei primi test, si è affermato come un vettore altamente competitivo e affidabile.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Indipendenza e Relazioni Internazionali</h2>
+    <ul>
+      <li><strong>Autonomia dagli USA:</strong> Dagli anni '90 l'ESA ha cercato maggiore indipendenza dalla NASA, anche a causa delle restrizioni americane sullo scambio di tecnologie.</li>
+      <li><strong>Relazioni con la Russia:</strong> Fu avviata un'importante collaborazione scientifica e logistica con la Russia, interrotta a seguito dell'invasione russa dell'Ucraina del 2022.</li>
+    </ul>
+  </section>
+</article>
 <footer>
   <p>Sito informativo dedicato all'Agenzia Spaziale Europea. Curato da Mattia Pappalardo</p>
 </footer>
+  <script>
+    document.querySelectorAll('li, tbody tr, h2, h3').forEach((elemento) => {
+      elemento.tabIndex = 0;
+      elemento.setAttribute('role', 'link');
+      const apriDettaglio = () => {
+        const voce = elemento.textContent.trim();
+        const pagina = document.title;
+        window.location.href = `dettaglio.html?voce=${encodeURIComponent(voce)}&pagina=${encodeURIComponent(pagina)}`;
+      };
+      elemento.addEventListener('click', apriDettaglio);
+      elemento.addEventListener('keydown', (evento) => {
+        if (evento.key === 'Enter' || evento.key === ' ') {
+          evento.preventDefault();
+          apriDettaglio();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
