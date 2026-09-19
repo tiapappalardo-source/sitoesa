@@ -21,8 +21,44 @@
     nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 24px; padding: 12px; background: #102d57; border-radius: 10px; }
     nav a { color: white; padding: 8px 12px; text-decoration: none; border-radius: 6px; }
     nav a:hover, nav a[aria-current="page"] { background: #1689d4; }
-    .spazio-pubblicita { display: flex; align-items: center; justify-content: center; min-height: 90px; margin: 20px 0; border: 2px dashed #9bd4ff; color: #d9ecff; text-align: center; }
     footer { margin-top: 32px; border-top: 1px solid #9bd4ff; color: #d9ecff; }
+    * { box-sizing: border-box; }
+    body { max-width: 1100px; margin: 0 auto; padding: 32px 24px; line-height: 1.7; font-size: 1.12rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-top: 0; text-shadow: 2px 2px 4px #000; }
+    h2, h3 { color: #bfe3ff; text-shadow: 2px 2px 3px #000; }
+    h2 { border-left: 4px solid #45b7ff; padding-left: 12px; margin-top: 38px; }
+    h3 { margin-top: 30px; color: #8fd3ff; }
+    nav { box-shadow: 0 10px 25px rgba(0, 0, 0, .25); }
+    nav a { font-weight: bold; transition: background .2s, transform .2s; }
+    nav a:hover { transform: translateY(-2px); }
+    section, article { max-width: 900px; }
+    li { margin: 12px 0; }
+    li::marker { color: #45b7ff; }
+    footer { max-width: 900px; padding-top: 16px; font-size: .9rem; }
+    @media (max-width: 600px) {
+      body { padding: 24px 16px; }
+      nav a { flex: 1 1 135px; text-align: center; }
+    }
+
+    /* Animazioni leggere e coerenti con lo sfondo spaziale */
+    body { animation: comparsa 0.8s ease both; }
+    h1 { animation: scorrimento 0.8s ease both; }
+    nav { animation: comparsa 1s ease 0.15s both; }
+    nav a { transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease; }
+    nav a:hover { box-shadow: 0 0 14px rgba(69, 183, 255, 0.55); }
+    h2, h3 { transition: color 0.25s ease, padding-left 0.25s ease; }
+    h2:hover { color: #ffffff; padding-left: 18px; }
+    h3:hover { color: #ffffff; }
+    li { transition: transform 0.25s ease, color 0.25s ease; }
+    li:hover { transform: translateX(6px); color: #e8f6ff; }
+    li, h2, h3 { cursor: pointer; }
+    li:focus, h2:focus, h3:focus { outline: 2px solid #45b7ff; outline-offset: 3px; }
+    .selezionata { color: #ffffff; background: rgba(69, 183, 255, 0.22); }
+    @keyframes comparsa { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scorrimento { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
   </style>
 </head>
 <body>
@@ -30,12 +66,49 @@
   <nav aria-label="Navigazione principale">
     <a href="index.html">Home</a><a href="missioni.html" aria-current="page">Missioni</a><a href="centri.html">Centri ESA</a><a href="storia.html">Storia</a>
   </nav>
-  <main>
-    <h2>Esplorare l'Universo</h2>
-    <p>L'ESA realizza missioni per studiare pianeti, stelle, galassie e il nostro Sistema Solare.</p>
-    <h2>Missioni famose</h2>
-    <ul><li><strong>Rosetta:</strong> ha studiato una cometa.</li><li><strong>Gaia:</strong> sta creando una mappa tridimensionale della Via Lattea.</li><li><strong>Solar Orbiter:</strong> osserva il Sole da vicino.</li></ul>
-  </main>
-  <footer><p>Sito informativo dedicato all'Agenzia Spaziale Europea. Curato da Mattia Pappalardo</p></footer>
+  <section>
+  <h2>Principali Missioni e Programmi Spaziali</h2>
 
+  <h3>Esplorazione del Sistema Solare e Spazio Profondo</h3>
+  <ul>
+    <li><strong>Giotto (1986):</strong> La prima missione europea nello spazio profondo, celebre per aver fotografato da vicino il nucleo della Cometa di Halley.</li>
+    <li><strong>Rosetta (2004-2016):</strong> Storica missione che ha raggiunto la cometa 67P/Churyumov-Gerasimenko, facendo atterrare sul suo nucleo il lander <em>Philae</em>.</li>
+    <li><strong>Mars Express (2003):</strong> Sonda orbitante attorno a Marte per la mappatura atmosferica e la ricerca di acqua.</li>
+    <li><strong>JUICE (2023):</strong> <em>Jupiter Icy Moons Explorer</em>, sonda in viaggio verso Giove per studiare le sue lune ghiacciate (Ganimede, Callisto, Europa).</li>
+    <li><strong>BepiColombo (2018):</strong> Missione congiunta con l'agenzia giapponese JAXA diretta verso Mercurio.</li>
+  </ul>
+
+  <h3>Osservazione dell'Universo e Astrofisica</h3>
+  <ul>
+    <li><strong>Hipparcos (1989) &amp; Gaia (2013):</strong> Missioni di astrometria dedicate alla misurazione precisa della posizione e del movimento di oltre un miliardo di stelle nella nostra Galassia.</li>
+    <li><strong>Telescopio Spaziale Hubble &amp; James Webb (JWST):</strong> Grandi collaborazioni internazionali con la NASA per l'osservazione dell'universo profondo in banda visibile e infrarossa.</li>
+    <li><strong>Euclid (2023):</strong> Telescopio spaziale destinato a mappare la geometria dell'universo per studiare la materia oscura e l'energia oscura.</li>
+  </ul>
+
+  <h3>Osservazione della Terra e Navigazione</h3>
+  <ul>
+    <li><strong>Programma Copernicus (Sentinels):</strong> La più ambiziosa rete di satelliti d'osservazione terrestre al mondo per il monitoraggio del clima, dell'ambiente e delle emergenze.</li>
+    <li><strong>Galileo:</strong> Il sistema europeo di navigazione satellitare ad altissima precisione, alternativo e indipendente dal GPS statunitense.</li>
+  </ul>
+</section>
+  <footer><p>Sito informativo dedicato all'Agenzia Spaziale Europea. Curato da Mattia Pappalardo</p></footer>
+  <script>
+    document.querySelectorAll('li, tbody tr, h2, h3').forEach((elemento) => {
+      elemento.tabIndex = 0;
+      elemento.setAttribute('role', 'link');
+      const apriDettaglio = () => {
+        const voce = elemento.textContent.trim();
+        const pagina = document.title;
+        window.location.href = `dettaglio.html?voce=${encodeURIComponent(voce)}&pagina=${encodeURIComponent(pagina)}`;
+      };
+      elemento.addEventListener('click', apriDettaglio);
+      elemento.addEventListener('keydown', (evento) => {
+        if (evento.key === 'Enter' || evento.key === ' ') {
+          evento.preventDefault();
+          apriDettaglio();
+        }
+      });
+    });
+  </script>
+</body>
 </html>
