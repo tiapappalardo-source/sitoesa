@@ -29,6 +29,8 @@
       line-height: 1.2;
       text-shadow: 2px 2px 4px #000;
     }
+    .selettore-lingua { color: #d9ecff; font-weight: bold; }
+    .lingua { color: #06152f; background: #ffffff; border: 0; border-radius: 6px; padding: 8px; font: inherit; margin-bottom: 24px; }
     .origine {
       margin-top: 0;
       color: #9bd4ff;
@@ -66,6 +68,10 @@
 </head>
 <body>
   <main>
+    <label class="selettore-lingua" for="lingua">Lingua:</label>
+    <select id="lingua" class="lingua" aria-label="Seleziona la lingua">
+      <option value="it">Italiano</option><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option>
+    </select>
     <p class="origine" id="origine"></p>
     <h1 id="titolo">Informazione ESA</h1>
     <p id="descrizione"></p>
@@ -135,5 +141,6 @@
     document.querySelector('#descrizione').textContent = descrizione;
     document.querySelector('#indietro').href = document.referrer || 'index.html';
   </script>
+  <script src="lingua.js"></script>
 </body>
 </html>
