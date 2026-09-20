@@ -19,6 +19,8 @@
     h1 { color: #bfe3ff; }
     nav, main, footer { max-width: 760px; }
     nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 24px; padding: 12px; background: #102d57; border-radius: 10px; }
+    .selettore-lingua { color: #d9ecff; font-weight: bold; align-self: center; }
+    .lingua { color: #06152f; background: #ffffff; border: 0; border-radius: 6px; padding: 8px; font: inherit; }
     nav a { color: white; padding: 8px 12px; text-decoration: none; border-radius: 6px; }
     nav a:hover, nav a[aria-current="page"] { background: #1689d4; }
     footer { margin-top: 32px; border-top: 1px solid #9bd4ff; color: #d9ecff; }
@@ -64,6 +66,10 @@
 <body>
   <h1>Le missioni dell'ESA</h1>
   <nav aria-label="Navigazione principale">
+    <label class="selettore-lingua" for="lingua">Lingua:</label>
+    <select id="lingua" class="lingua" aria-label="Seleziona la lingua">
+      <option value="it">Italiano</option><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option>
+    </select>
     <a href="index.html">Home</a><a href="missioni.html" aria-current="page">Missioni</a><a href="centri.html">Centri ESA</a><a href="storia.html">Storia</a>
   </nav>
   <section>
@@ -92,6 +98,7 @@
   </ul>
 </section>
   <footer><p>Sito informativo dedicato all'Agenzia Spaziale Europea. Curato da Mattia Pappalardo</p></footer>
+  <script src="lingua.js"></script>
   <script>
     document.querySelectorAll('li, tbody tr, h2, h3').forEach((elemento) => {
       elemento.tabIndex = 0;
