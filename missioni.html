@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#06152f">
   <title>Missioni ESA</title>
   <style>
     body { font-family: "Trebuchet MS", "Segoe UI", sans-serif;
@@ -61,6 +62,37 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
+    /* Ottimizzazione per smartphone */
+    @media (max-width: 600px) {
+      body { padding: 20px 14px; font-size: 1rem; }
+      nav { gap: 7px; padding: 10px; }
+      .selettore-lingua, .lingua { width: 100%; }
+      nav a { flex: 1 1 calc(50% - 7px); text-align: center; padding: 9px 6px; }
+      h2 { font-size: 1.35rem; margin-top: 28px; }
+      h3 { font-size: 1.12rem; margin-top: 24px; }
+      ul { padding-left: 22px; }
+      li { margin: 10px 0; }
+    }
+
+    /* Esperienza mobile dedicata */
+    @media (max-width: 600px) {
+      body { padding: 20px 14px; font-size: 1rem; background-attachment: scroll; }
+      h1 { line-height: 1.15; }
+      nav { position: sticky; top: 8px; z-index: 10; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; padding: 10px; backdrop-filter: blur(10px); }
+      .selettore-lingua, .lingua { grid-column: 1 / -1; width: 100%; }
+      nav a { min-height: 44px; display: grid; place-items: center; padding: 8px 5px; text-align: center; }
+      section { max-width: none; }
+      h2, h3 { line-height: 1.25; }
+      ul { padding-left: 22px; }
+      li { margin: 12px 0; }
+      footer { line-height: 1.45; }
+    }
+    .galleria-esa { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; max-width: 900px; margin: 28px 0 34px; }
+    .galleria-esa a { display: block; color: #fff; text-decoration: none; background: rgba(0, 20, 60, .78); border: 1px solid rgba(155, 212, 255, .55); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 22px rgba(0,0,0,.25); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .galleria-esa a:hover, .galleria-esa a:focus-visible { transform: translateY(-5px); border-color: #45b7ff; box-shadow: 0 0 18px rgba(69,183,255,.5); outline: none; }
+    .galleria-esa img { display: block; width: 100%; height: 145px; object-fit: cover; }
+    .galleria-esa figcaption { padding: 12px; font-weight: bold; }
+    @media (max-width: 600px) { .galleria-esa { grid-template-columns: 1fr 1fr; gap: 10px; margin: 22px 0 28px; } .galleria-esa img { height: 110px; } .galleria-esa figcaption { padding: 9px; font-size: .92rem; line-height: 1.3; } }
   </style>
 </head>
 <body>
@@ -72,6 +104,11 @@
     </select>
     <a href="index.html">Home</a><a href="missioni.html" aria-current="page">Missioni</a><a href="centri.html">Centri ESA</a><a href="storia.html">Storia</a>
   </nav>
+  <section class="galleria-esa" aria-label="Immagini delle missioni">
+    <a href="dettaglio.html?voce=Rosetta&pagina=Missioni"><figure><img src="https://www.asi.it/wp-content/uploads/2019/03/1475144620_Rosetta_esa.jpg" alt="Missione Rosetta" loading="lazy"><figcaption>Rosetta</figcaption></figure></a>
+    <a href="dettaglio.html?voce=Mars Express&pagina=Missioni"><figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnRIz_VVrygDMJXd5pfYFUGAMCSKxMl9xn_8Dy1ELNeQ&s=10" alt="Sonda Mars Express" loading="lazy"><figcaption>Mars Express</figcaption></figure></a>
+    <a href="dettaglio.html?voce=Giotto&pagina=Missioni"><figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCzRO-7DAUqhw32UJxl_0HgBT6O5B2RpCwkvge5-SasQ&s=10" alt="Missione Giotto" loading="lazy"><figcaption>Giotto</figcaption></figure></a>
+  </section>
   <section>
   <h2>Principali Missioni e Programmi Spaziali</h2>
 
