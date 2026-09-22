@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#06152f">
   <title>Centri ESA</title>
   <style>
     body {
@@ -13,7 +14,7 @@
       background-color: #06152f;
       background-image:
         linear-gradient(rgba(0, 0, 40, 0.58), rgba(0, 0, 40, 0.58)),
-        url("https://www.asi.it/wp-content/uploads/2019/03/1475144620_Rosetta_esa.jpg");
+        url("https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2019/10/esrin2/21100986-1-eng-GB/ESRIN_pillars.jpg");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -150,6 +151,36 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
+    /* Ottimizzazione per smartphone */
+    @media (max-width: 600px) {
+      body { padding: 20px 14px; font-size: 1rem; }
+      nav { gap: 7px; padding: 10px; }
+      .selettore-lingua, .lingua { width: 100%; }
+      nav a { flex: 1 1 calc(50% - 7px); text-align: center; padding: 9px 6px; }
+      h2 { font-size: 1.35rem; }
+      section { width: 100%; overflow-x: auto; }
+      table { min-width: 620px; font-size: .92rem; }
+      th, td { padding: 8px; }
+    }
+
+    /* Esperienza mobile dedicata */
+    @media (max-width: 600px) {
+      body { padding: 20px 14px; font-size: 1rem; background-attachment: scroll; }
+      h1 { line-height: 1.15; }
+      nav { position: sticky; top: 8px; z-index: 10; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; padding: 10px; backdrop-filter: blur(10px); }
+      .selettore-lingua, .lingua { grid-column: 1 / -1; width: 100%; }
+      nav a { min-height: 44px; display: grid; place-items: center; padding: 8px 5px; text-align: center; }
+      section { overflow-x: auto; }
+      table { min-width: 620px; margin-top: 18px; font-size: .9rem; }
+      th, td { padding: 9px; }
+      footer { line-height: 1.45; }
+    }
+    .galleria-esa { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; max-width: 900px; margin: 28px 0 34px; }
+    .galleria-esa a { display: block; color: #fff; text-decoration: none; background: rgba(0,20,60,.78); border: 1px solid rgba(155,212,255,.55); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 22px rgba(0,0,0,.25); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .galleria-esa a:hover, .galleria-esa a:focus-visible { transform: translateY(-5px); border-color: #45b7ff; box-shadow: 0 0 18px rgba(69,183,255,.5); outline: none; }
+    .galleria-esa img { display: block; width: 100%; height: 145px; object-fit: cover; }
+    .galleria-esa figcaption { padding: 12px; font-weight: bold; }
+    @media (max-width: 600px) { .galleria-esa { grid-template-columns: 1fr 1fr; gap: 10px; margin: 22px 0 28px; } .galleria-esa img { height: 110px; } .galleria-esa figcaption { padding: 9px; font-size: .92rem; line-height: 1.3; } }
   </style>
 </head>
 <body>
@@ -165,6 +196,12 @@
     <a href="centri.html" aria-current="page">Centri ESA</a>
     <a href="storia.html">Storia</a>
   </nav>
+
+  <section class="galleria-esa" aria-label="Immagini dei centri ESA">
+    <a href="dettaglio.html?voce=ESTEC&pagina=Centri ESA"><figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXPJwoM-8cTtvxCJlURexq1o0Kmj3-PnNmOrplJfmDmg&s" alt="Centro ESTEC" loading="lazy"><figcaption>ESTEC</figcaption></figure></a>
+    <a href="dettaglio.html?voce=ESRIN&pagina=Centri ESA"><figure><img src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2019/10/esrin2/21100986-1-eng-GB/ESRIN_pillars.jpg" alt="Centro ESRIN" loading="lazy"><figcaption>ESRIN</figcaption></figure></a>
+    <a href="dettaglio.html?voce=CSG&pagina=Centri ESA"><figure><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD1lO75uRZW2Z2Fc9ZFj3kT55rtwPg7sjfRME5CoPZGQ&s=10" alt="Spazioporto europeo" loading="lazy"><figcaption>Spazioporto CSG</figcaption></figure></a>
+  </section>
 
  <section>
   <h2>I Principali Centri dell'ESA in Europa</h2>
