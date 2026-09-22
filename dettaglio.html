@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#06152f">
   <title>Approfondimento ESA</title>
   <style>
     * { box-sizing: border-box; }
@@ -40,6 +41,8 @@
     }
     #descrizione { max-width: 78ch; }
     .azioni { margin-top: 32px; }
+    .immagine-approfondimento { width: 100%; max-height: 280px; object-fit: cover; border-radius: 12px; margin: 18px 0 24px; border: 1px solid rgba(155, 212, 255, .55); }
+    @media (max-width: 600px) { .immagine-approfondimento { max-height: 190px; } }
     a {
       display: inline-block;
       color: #fff;
@@ -63,6 +66,23 @@
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    /* Ottimizzazione per smartphone */
+    @media (max-width: 600px) {
+      body { padding: 16px 12px; font-size: 1rem; }
+      main { padding: 20px 16px; border-radius: 12px; }
+      h1 { font-size: 1.7rem; }
+      .lingua { width: 100%; margin-top: 6px; }
+      .azioni a { width: 100%; text-align: center; }
+    }
+
+    /* Esperienza mobile dedicata */
+    @media (max-width: 600px) {
+      body { padding: 16px 12px; font-size: 1rem; background-attachment: scroll; }
+      main { padding: 20px 16px; border-radius: 12px; }
+      h1 { font-size: 1.75rem; line-height: 1.2; }
+      .lingua { width: 100%; margin-top: 6px; }
+      .azioni a { width: 100%; min-height: 44px; display: grid; place-items: center; text-align: center; }
     }
   </style>
 </head>
